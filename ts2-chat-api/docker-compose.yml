@@ -1,0 +1,29 @@
+version: "3"
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=foobar
+    ports:
+      - 27017:27017
+    volumes:
+      - /data/mongo-data-ts2:/data/db
+
+  # # # build the simple note app service
+  # app:
+  #   build: .
+  #   restart: always
+  #   ports:
+  #     - 3000:3000
+  #   environment:
+  #     - DB_HOST=mongo
+  #     - DB_PORT=27017
+  #     - DB_NAME=notes
+  #     - DB_USER=admin
+  #     - DB_PASS=foobar
+
+  # # needs to wait for mongodb to be ready
+  #   depends_on:
+  #     - mongo
