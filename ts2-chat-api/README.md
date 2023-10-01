@@ -84,5 +84,6 @@ To send a message, use the following JSON payload format:
 }
 ```
 
+More details on usage can be found in the [API Documentation](https://documenter.getpostman.com/view/26131668/2s9YJaZ4iE)
 ## Authors
 Oluwatomiwa Adebisi
