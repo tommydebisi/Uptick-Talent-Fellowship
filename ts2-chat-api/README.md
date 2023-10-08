@@ -43,15 +43,21 @@ This is a simple chat application built with Node.js. The application allows use
     ```
 
 ## Usage
-After starting the server, you can use a WebSocket client to connect to `ws://localhost:3000` for chat functionalities.
+After starting the server, you can use a WebSocket client to connect to `ws://localhost:3000` (if connecting locally) else use [Hosted Websocket Api Link](ws://simple-chat-app-qo54.onrender.com) for chat functionalities.
 
-**API Endpoints**
-**POST /api/register**(http endpoint): Register a new user
+**API Endpoints** </br>
+**POST /api/register** ([Hosted API endpoint](https://simple-chat-app-qo54.onrender.com/api/register)): Registers a new user. <br>
 The endpoint takes a body of `username` with your preferred user name.
-**Note: A user must be registered before they can join a chat room or have a personal chat with another user.**
+```json
+{
+    "username": "your-preferred-username"
+}
+``` 
+**Note:** A user must be registered before they can join a chat room or have a personal chat with another user.
 
 ## WebSocket Events
-**Join a Room or Personal Chat**
+After connecting to the WebSocket server (hosted or local), you can send the following events to the server: <br>
+**Join a Room or Personal Chat** <br>
 Send a JSON payload with the following format to join a room or start a personal chat:
 ```json
 {
@@ -83,6 +89,9 @@ To send a message, use the following JSON payload format:
     "message": "your-message"
 }
 ```
+**Note:** You can either send a message to a room or recipient(registered User), not both.
+
+**And with that, you're all set to start chatting!**
 
 ## Authors
 Oluwatomiwa Adebisi
