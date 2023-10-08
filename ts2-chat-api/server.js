@@ -19,6 +19,7 @@ app.use(express.json());
 // parse form in request body
 app.use(express.urlencoded({extended: false}));
 
+// Use CORS
 app.use(cors());
 
 // Use User Routes
@@ -26,7 +27,6 @@ app.use("/api", indexRoutes);
 // Create WebSocket server
 const wss = new WebSocket.Server({ server });
 
-// Use CORS
 
 // WebSocket event handling
 wss.on('connection', function connection(ws) {
@@ -51,3 +51,5 @@ dbConnect.connect()
   .catch((err) => {
     console.error('Could not connect to MongoDB:', err);
   });
+
+// module.exports = app;
