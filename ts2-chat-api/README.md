@@ -15,7 +15,6 @@ This is a simple chat application built with Node.js. The application allows use
 
 - Node.js
 - MongoDB
-- Docker
 
 ### Installation
 
@@ -33,8 +32,7 @@ This is a simple chat application built with Node.js. The application allows use
 4. Create a `.env` file in the root directory and add the following environment variables
     ```bash
     PORT=your-port-of-choice
-    DB_HOST=your-mongodb-host
-    DB_NAME=your-mongodb-database-name
+
     DB_PORT=your-mongodb-port
     DB_USER=your-mongodb-username
     DB_PASS=your-mongodb-password
@@ -48,7 +46,9 @@ This is a simple chat application built with Node.js. The application allows use
 After starting the server, you can use a WebSocket client to connect to `ws://localhost:3000` for chat functionalities.
 
 **API Endpoints**
-POST /api/register: Register a new user
+**POST /api/register**(http endpoint): Register a new user
+The endpoint takes a body of `username` with your preferred user name.
+**Note: A user must be registered before they can join a chat room or have a personal chat with another user.**
 
 ## WebSocket Events
 **Join a Room or Personal Chat**
@@ -84,6 +84,5 @@ To send a message, use the following JSON payload format:
 }
 ```
 
-More details on usage can be found in the [API Documentation](https://documenter.getpostman.com/view/26131668/2s9YJaZ4iE)
 ## Authors
 Oluwatomiwa Adebisi
