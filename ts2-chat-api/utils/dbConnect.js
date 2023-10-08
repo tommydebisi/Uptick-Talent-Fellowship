@@ -17,12 +17,7 @@ class DbConnection {
       // `mongodb://${this.user}:${this.pass}@${this.host}:${this.port}/${this.name}`,
 
       // comment out the entire line below if you want to connect with docker
-      `mongodb+srv://${this.user}:${this.pass}@cluster0.ijtgnu3.mongodb.net/${this.name}`,
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        authSource: `${this.user}` // specify the database to authenticate against
-      }
+      `mongodb+srv://${this.user}:${this.pass}@cluster0.ijtgnu3.mongodb.net/${this.name}`
     )
   }
 }
