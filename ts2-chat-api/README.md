@@ -43,7 +43,7 @@ This is a simple chat application built with Node.js. The application allows use
     ```
 
 ## Usage
-After starting the server, you can use a WebSocket client to connect to `ws://localhost:3000` (if connecting locally) else use [Hosted Websocket Api](ws://simple-chat-app-qo54.onrender.com) for chat functionalities.
+After starting the server, you can use a WebSocket client to connect to `ws://localhost:3000` (if connecting locally) else use `ws://simple-chat-app-qo54.onrender.com` for chat functionalities.
 
 **API Endpoints** </br>
 **POST /api/register** ([Hosted API endpoint](https://simple-chat-app-qo54.onrender.com/api/register)): Registers a new user. <br>
