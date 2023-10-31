@@ -1,0 +1,17 @@
+{
+  "name": "ts6-docker-sample-api",
+  "version": "1.0.0",
+  "description": "Set up a normalized database (any of your choice) and a NoSQL (any of your choice) using docker. You can set up a sample app (in any language and/or framework of your choice) to connect to your 2 databases and create a sample API that synchronizes writing to both databases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.2.0",
+    "mysql2": "^3.6.2"
+  }
+}
