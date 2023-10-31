@@ -20,8 +20,8 @@ This is a sample API built with Node.js and Express that synchronizes writing to
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/sample-api.git
-cd sample-api
+git clone https://github.com/tommydebisi/Uptick-Talent-Fellowship.git
+cd Uptick-Talent-Fellowship/ts6-docker-sample-api
 ```
 
 ### Step 2: Start Docker Containers
