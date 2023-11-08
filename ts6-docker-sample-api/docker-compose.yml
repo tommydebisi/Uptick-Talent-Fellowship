@@ -1,16 +1,16 @@
 version: '3'
 services:
-  mysql-db:
-    image: mysql:latest
+  postgres:
+    image: postgres:16
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: testDB
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: testDb
     ports:
-      - "3306:3306"
+      - 5432:5432
     volumes:
-      - "/data/mysql-data:/var/lib/mysql"
+      - /data/postgres-data-sample:/var/lib/postgresql/data
 
   mongo-db:
     image: mongo:latest

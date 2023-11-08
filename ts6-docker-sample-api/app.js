@@ -1,50 +1,37 @@
+require('dotenv').config();
 const express = require('express');
-const mysql = require('mysql2/promise');
-const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
+const sequelize = require('./config/database');
+const dataRoutes = require('./routes/dataRoutes');
+
 
 const app = express();
 app.use(express.json());
+app.use(dataRoutes);
 
-// MySQL connection setup
-let mysqlConnection;
-async function connectMySQL() {
-  mysqlConnection = await mysql.createConnection({
-    host: 'localhost',
-    user: 'user',
-    password: 'password',
-    database: 'testDB'
-  });
+const port = process.env.PORT || 3000;
+
+async function startUp(){
+  try{
+    await mongoose.connect(process.env.MONGOURI);
+    console.log("mongodb connected");
+
+    sequelize.sync()
+    .then(() => {
+      console.log('postgres connected');
+
+      app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+      });
+    })
+    .catch((e) => {
+      console.log(e);
+    })
+  } catch (e) {
+    console.log(e);
+  }
 }
-connectMySQL();
 
-// MongoDB connection setup
-let mongodbConnection;
-async function connectMongoDB() {
-  const client = new MongoClient('mongodb://root:password@localhost:27017');
-  await client.connect();
-  mongodbConnection = client.db('testDB');
-}
-connectMongoDB();
+startUp()
 
-app.post('/api/data', async (req, res) => {
-  const data = req.body;
-
-  // Insert data into MySQL
-  const [mysqlResult] = await mysqlConnection.execute(
-    'INSERT INTO sampleTable (name, value) VALUES (?, ?)',
-    [data.name, data.value]
-  );
-
-  // Insert data into MongoDB
-  const collection = mongodbConnection.collection('sampleCollection');
-  const mongoResult = await collection.insertOne(data);
-
-  res.json({
-    mysqlResult: mysqlResult.insertId,
-    mongoResult: mongoResult.insertedId
-  });
-});
-
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+module.exports = app;
