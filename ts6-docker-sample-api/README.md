@@ -58,7 +58,7 @@ POSTGRESURI=postgres://user:password@localhost:5432/testDb
 ```
 
 
-### Step 4: Run the Node.js Application
+### Step 5: Run the Node.js Application
 
 ```bash
 node app.js
@@ -98,6 +98,10 @@ This will insert the data into both Postgres and MongoDB databases and return th
 
 **For the tests passed**
 ![Tests](public/tests-passed.PNG)
+
+## CI/CD
+
+The CI/CD pipeline is set up using Github Actions. The workflow file is located [HERE](../.github/workflows/ts7-ci.yml). The workflow is triggered on every push to the `main` branch. It runs the tests for the application.
 
 
 ## Authors
