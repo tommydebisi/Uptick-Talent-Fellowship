@@ -103,6 +103,12 @@ This will insert the data into both Postgres and MongoDB databases and return th
 
 The CI/CD pipeline is set up using Github Actions. The workflow file is located [HERE](../.github/workflows/ts7-ci.yml). The workflow is triggered on every push to the `main` branch. It runs the tests for the application.
 
+# Performance and Monitoring Tests
+Making use of New relic, I was able to monitor the performance of the API. The image below shows the performance of the API when transactions are made.
+![Performance](public/transaction-perform.png)
+
+The image below shows the monitoring of the Database.
+![Database](public/db-perform.png)
 
 ## Authors
 Oluwatomiwa Adebisi
